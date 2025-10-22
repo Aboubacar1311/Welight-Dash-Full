@@ -1,0 +1,5 @@
+{
+  "name": "Welight Dashboard",
+  "description": "A comprehensive dashboard to monitor, analyze, and compare the performance of the Welight electrical network across commercial, technical, and financial dimensions. It provides a clear, consolidated, and dynamic view of activities through key performance indicators (KPIs) and detailed analyses.",
+  "requestFramePermissions": []
+}
