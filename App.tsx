@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo, useCallback } from 'react';
 import { useData } from './services/mockData';
 import { FilterState, Page, MonthlyData } from './types';
@@ -9,6 +8,9 @@ import Consumption from './pages/Consumption';
 import Commercial from './pages/Commercial';
 import Clients from './pages/Clients';
 import AdvancedAnalysis from './pages/AdvancedAnalysis';
+import ConnectionPipeline from './pages/ConnectionPipeline';
+import SiteManagement from './pages/SiteManagement';
+import CustomerIntelligence from './pages/CustomerIntelligence';
 import { filterData } from './utils/filterData';
 import { ZapIcon } from './components/icons';
 import { CurrencyProvider } from './contexts/CurrencyContext';
@@ -36,7 +38,7 @@ const App: React.FC = () => {
     }, [rawData, filters, loading]);
 
     const renderPage = () => {
-        const props = { data: filteredData, allData: rawData, filters };
+        const props = { data: filteredData, allData: rawData, filters, clients: clients || [] };
         switch (activePage) {
             case 'ExecutiveSummary':
                 return <ExecutiveSummary {...props} />;
@@ -48,6 +50,12 @@ const App: React.FC = () => {
                 return <Clients clients={clients || []} />;
             case 'AdvancedAnalysis':
                 return <AdvancedAnalysis {...props} />;
+            case 'ConnectionPipeline':
+                return <ConnectionPipeline {...props} />;
+            case 'SiteManagement':
+                return <SiteManagement {...props} />;
+            case 'CustomerIntelligence':
+                return <CustomerIntelligence {...props} />;
             default:
                 return <ExecutiveSummary {...props} />;
         }

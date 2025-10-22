@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { MonthlyData, FilterState } from '../types';
 import ChartContainer from '../components/ChartContainer';
 import StatCard from '../components/StatCard';
-import { ResponsiveContainer, BarChart, XAxis, YAxis, Tooltip, Legend, Bar, PieChart, Pie, Cell, CartesianGrid, LineChart, Line } from 'recharts';
+import { ResponsiveContainer, BarChart, XAxis, YAxis, Tooltip, Legend, Bar, PieChart, Pie, Cell, CartesianGrid, LineChart, Line, Brush } from 'recharts';
 import { ZapIcon, DollarSignIcon, PlugZapIcon } from '../components/icons';
 import { useCurrency } from '../contexts/CurrencyContext';
 
@@ -217,8 +217,8 @@ const Consumption: React.FC<PageProps> = ({ data, allData, filters }) => {
                                     fill="#8884d8"
                                     dataKey="soldKwh"
                                     nameKey="name"
-                                    // Fix: Manually calculate percentage to avoid type errors with the `percent` prop.
-                                    label={({ name, value }) => `${name} ${totalConsumption > 0 ? ((value / totalConsumption) * 100).toFixed(0) : 0}%`}
+                                    // FIX: Cast `value` to `number` to resolve a TypeScript error. The `value` from recharts' render prop is not strictly typed.
+                                    label={({ name, value }) => `${name} ${totalConsumption > 0 ? (((value as number) / totalConsumption) * 100).toFixed(0) : 0}%`}
                                 >
                                     {aggregatedDataBySegment.map((entry, index) => (
                                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -248,6 +248,7 @@ const Consumption: React.FC<PageProps> = ({ data, allData, filters }) => {
                         <Legend wrapperStyle={{color: '#4b5563'}} />
                         <Line yAxisId="left" type="monotone" dataKey="Consumption" stroke="#44546A" strokeWidth={2} name="Consumption (kWh)" />
                         <Line yAxisId="right" type="monotone" dataKey="Revenue" stroke="#FFD966" strokeWidth={2} name="Revenue" />
+                        <Brush dataKey="name" height={30} stroke="#44546A" fill="#f1f5f9" />
                     </LineChart>
                 </ResponsiveContainer>
             </ChartContainer>

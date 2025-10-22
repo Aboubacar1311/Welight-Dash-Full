@@ -1,9 +1,8 @@
-
 import React, { useMemo, useState } from 'react';
 import { MonthlyData, FilterState, Segmentation } from '../types';
 import StatCard from '../components/StatCard';
 import ChartContainer from '../components/ChartContainer';
-import { ResponsiveContainer, BarChart, XAxis, YAxis, Tooltip, Legend, Bar, LineChart, Line, CartesianGrid, ComposedChart } from 'recharts';
+import { ResponsiveContainer, BarChart, XAxis, YAxis, Tooltip, Legend, Bar, LineChart, Line, CartesianGrid, ComposedChart, Brush } from 'recharts';
 import { DollarSignIcon, UsersRoundIcon, PlugZapIcon } from '../components/icons';
 import { useCurrency } from '../contexts/CurrencyContext';
 
@@ -89,6 +88,7 @@ const SitePhasePerformance: React.FC<{ allData: MonthlyData[], filters: FilterSt
                         <Bar yAxisId="left" dataKey="comm_prev" fill="#a0aec0" name="Commissioned (M-1)" />
                         <Line yAxisId="right" type="monotone" dataKey="arpu_current" stroke="#FFD966" strokeWidth={3} name="ARPU (Current M)" />
                         <Line yAxisId="right" type="monotone" dataKey="arpu_prev" stroke="#f6ad55" strokeWidth={2} name="ARPU (M-1)" strokeDasharray="5 5" />
+                        <Brush dataKey="name" height={30} stroke="#44546A" fill="#f1f5f9" />
                     </ComposedChart>
                 </ResponsiveContainer>
             ) : (
@@ -242,6 +242,7 @@ const ExecutiveSummary: React.FC<PageProps> = ({ data, allData, filters }) => {
                                 <Legend wrapperStyle={{color: '#4b5563'}} />
                                 <Bar dataKey="Actual" fill="#44546A" />
                                 <Bar dataKey="Budget" fill="#a0aec0" />
+                                <Brush dataKey="name" height={30} stroke="#44546A" fill="#f1f5f9" />
                             </BarChart>
                         </ResponsiveContainer>
                     ) : (
@@ -281,6 +282,7 @@ const ExecutiveSummary: React.FC<PageProps> = ({ data, allData, filters }) => {
                                 />
                                 <Legend wrapperStyle={{color: '#4b5563'}} />
                                 <Line type="monotone" dataKey="ARPU" stroke="#FFD966" strokeWidth={3} />
+                                <Brush dataKey="name" height={30} stroke="#FFD966" fill="#f1f5f9" />
                             </LineChart>
                         </ResponsiveContainer>
                      ) : (

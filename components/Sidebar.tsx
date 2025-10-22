@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Page } from '../types';
-import { LayoutDashboardIcon, ZapIcon, ShoppingCartIcon, UsersIcon, BarChart3Icon } from './icons';
+import { LayoutDashboardIcon, ZapIcon, ShoppingCartIcon, UsersIcon, BarChart3Icon, ClockIcon, BriefcaseIcon, BrainCircuitIcon } from './icons';
 
 interface SidebarProps {
     activePage: Page;
@@ -21,15 +20,18 @@ const NavItem: React.FC<{ page: Page; label: string; icon: React.ReactNode; acti
     );
 };
 
-const logoUrl = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAACFCAAAAAD2cUbWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE4SURBVHhe7dDBAYAwDMCw/9/kMAiNYrMAtb177s0eEMA5AQgQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUCB14zF/k8pQIEQIECEDiBq+Z/y3qAAAEIECBCBwAgQIQAECEDgBAgQgAAEIHECBAgQAAGEDAqEAABCECgQAgQgAAEIEDiBAgQIAAChA0KhAAAIQCAECBCBwAgQIQAACECgAAhA4AQIEIAABCBsUCAUAgAAEIBCBAgQgAAEIECBA4gQIEIAABCBsUCAUAAACEIBA+QGYVRDEz/j/3gAAAABJRU5ErkJggg==";
+const logoUrl = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAACFCAAAAAD2cUbWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE4SURBVHhe7dDBAYAwDMCw/9/kMAiNYrMAtb177s0eEMA5AQgQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUAIECFAhAAQgUCB14zF/k8pQIEQIECEDiBq+Z/y3qAAAEIECBCBwAgQIQAECEDgBAgQgAAEIHECBAgQAAGEDAqEAABCECgQAgQgAAEIECBA4gQIEIAABCBsUCAUAAACEIBA+QGYVRDEz/j/3gAAAABJRU5ErkJggg==";
 
 const Sidebar: React.FC<SidebarProps> = ({ activePage, setActivePage }) => {
     
     const navItems = [
         { page: 'ExecutiveSummary' as Page, label: 'Executive Summary', icon: <LayoutDashboardIcon /> },
+        { page: 'SiteManagement' as Page, label: 'Site Management', icon: <BriefcaseIcon /> },
         { page: 'Consumption' as Page, label: 'Consumption', icon: <ZapIcon /> },
         { page: 'Commercial' as Page, label: 'Commercial Data', icon: <ShoppingCartIcon /> },
+        { page: 'ConnectionPipeline' as Page, label: 'Connection Pipeline', icon: <ClockIcon /> },
         { page: 'Clients' as Page, label: 'Clients', icon: <UsersIcon /> },
+        { page: 'CustomerIntelligence' as Page, label: 'Customer Intelligence', icon: <BrainCircuitIcon /> },
         { page: 'AdvancedAnalysis' as Page, label: 'Advanced Analysis', icon: <BarChart3Icon /> },
     ];
 

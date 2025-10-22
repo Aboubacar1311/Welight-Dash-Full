@@ -133,8 +133,8 @@ const Clients: React.FC<PageProps> = ({ clients }) => {
                             fill="#8884d8"
                             dataKey="value"
                             nameKey="name"
-                            // Fix: Manually calculate percentage to avoid type errors with the `percent` prop.
-                            label={({ name, value }) => `${name} ${clientStats.total > 0 ? ((value / clientStats.total) * 100).toFixed(0) : 0}%`}
+                            // FIX: Cast `value` to `number` to resolve a TypeScript error. The `value` from recharts' render prop is not strictly typed.
+                            label={({ name, value }) => `${name} ${clientStats.total > 0 ? (((value as number) / clientStats.total) * 100).toFixed(0) : 0}%`}
                         >
                             {statusDistributionData.map((entry, index) => (
                                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

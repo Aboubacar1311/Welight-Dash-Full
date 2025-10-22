@@ -11,40 +11,60 @@ This document outlines the steps to set up and run the full-stack Welight Dashbo
 +----------------+      +-----------------------+      +---------------------+
 ```
 
-- **Frontend**: A React application that provides the user interface.
+- **Frontend**: A React application built with TypeScript that provides the user interface.
 - **Backend**: A Django REST Framework API that securely connects to the Data Warehouse, executes SQL queries, and serves the data as JSON to the frontend.
 
 ---
 
-## 1. Backend Setup (Python / Django)
+## Local Development Setup
 
-The backend is located in the `backend/` directory.
+Follow these steps to set up the project on your local machine.
 
 ### Prerequisites
 
-- Python 3.8+
-- `pip` (Python package installer)
+- **Git**: For cloning the repository.
+- **Python 3.8+** and `pip`: For the backend server.
+- **Node.js LTS** and `npm`: For the frontend application.
 
-### Installation
+### 1. Clone the Repository
+
+First, clone the project repository to your local machine and navigate into the project directory.
+
+```bash
+git clone <your-repository-url>
+cd welight-dashboard
+```
+
+---
+
+### 2. Backend Setup (Python / Django)
+
+The backend is located in the `backend/` directory. All commands below should be run from within this directory.
 
 1.  **Navigate to the backend directory:**
     ```bash
     cd backend
     ```
 
-2.  **Create a virtual environment (recommended):**
+2.  **Create and activate a virtual environment:**
     ```bash
+    # Create the environment
     python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+
+    # Activate it (on macOS/Linux)
+    source venv/bin/activate
+    
+    # On Windows, use:
+    # venv\Scripts\activate
     ```
 
-3.  **Install the required Python packages:**
+3.  **Install Python dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
 
 4.  **Configure Environment Variables:**
-    Create a `.env` file inside the `backend/` directory by copying the example file.
+    Create a `.env` file by copying the example. This file will store your database credentials securely.
     ```bash
     cp .env.example .env
     ```
@@ -58,29 +78,54 @@ The backend is located in the `backend/` directory.
     DB_PORT=3306
     ```
 
-### Running the Backend Server
-
-1.  From the `backend/` directory (with your virtual environment activated), run the Django development server:
-    ```bash
-    python manage.py runserver
-    ```
-
-2.  The backend API will now be running at `http://127.0.0.1:8000`. You can test an endpoint by visiting `http://127.0.0.1:8000/api/commercial-data/` in your browser.
-
 ---
 
-## 2. Frontend Setup (React)
+### 3. Frontend Setup (React)
 
 The frontend is located in the root directory.
 
-### Prerequisites
+1.  **Navigate to the project's root directory** (if you are in the `backend` folder, go back one level).
+    ```bash
+    cd ..
+    ```
 
-- A running instance of the backend server (see above).
-- The development environment where you are running this application.
+2.  **Install JavaScript dependencies:**
+    ```bash
+    npm install
+    ```
 
-### Running the Frontend
+---
 
-1.  Open a **new terminal** (leave the backend server running in the first one).
-2.  The frontend should start automatically in your development environment. If you were running this locally, you would typically run `npm install` and `npm start`.
+## Running the Application
 
-The frontend is configured to make API calls to `http://localhost:8000`, so it's crucial that the backend server is running for the dashboard to be populated with data.
+To run the full application, you will need two separate terminal windows: one for the backend and one for the frontend.
+
+### 1. Start the Backend Server
+
+-   Open your first terminal.
+-   Navigate to the `backend/` directory and ensure your virtual environment is activated.
+-   Run the Django development server:
+
+    ```bash
+    # Navigate to the backend folder
+    cd backend
+
+    # Make sure your virtual environment is active
+    source venv/bin/activate
+
+    # Start the server
+    python manage.py runserver
+    ```
+-   The backend API will now be running at **`http://127.0.0.1:8000`**.
+
+### 2. Start the Frontend Application
+
+-   Open a **new terminal** (leave the backend server running).
+-   Navigate to the project's root directory.
+-   Run the React development server:
+
+    ```bash
+    # This command starts the frontend application
+    npm start
+    ```
+-   The frontend will open automatically in your browser, usually at **`http://localhost:3000`**. It is configured to make API calls to the backend server you started in the first step.

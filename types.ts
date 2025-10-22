@@ -1,4 +1,3 @@
-
 export interface FilterState {
     year: number;
     month: number;
@@ -19,7 +18,7 @@ export interface FilterOptions {
     segments: string[];
 }
 
-export type Page = 'ExecutiveSummary' | 'Consumption' | 'Commercial' | 'Clients' | 'AdvancedAnalysis';
+export type Page = 'ExecutiveSummary' | 'Consumption' | 'Commercial' | 'Clients' | 'AdvancedAnalysis' | 'ConnectionPipeline' | 'SiteManagement' | 'CustomerIntelligence';
 
 export type Currency = 'FCFA' | 'EUR';
 

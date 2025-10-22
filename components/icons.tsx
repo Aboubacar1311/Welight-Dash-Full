@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const iconProps = {
@@ -41,4 +40,16 @@ export const PlugZapIcon: React.FC<{className?: string}> = ({className}) => (
 
 export const DownloadIcon: React.FC<{className?: string}> = ({className}) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className || iconProps.className}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+);
+
+export const BriefcaseIcon: React.FC<{className?: string}> = ({className}) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className || iconProps.className}><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+);
+
+export const ClockIcon: React.FC<{className?: string}> = ({className}) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className || iconProps.className}><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+);
+
+export const BrainCircuitIcon: React.FC<{className?: string}> = ({className}) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className || iconProps.className}><path d="M12 5a3 3 0 1 0-5.993.119A3.001 3.001 0 0 0 12 5Z"/><path d="M12 19a3 3 0 1 1-5.993-.119A3.001 3.001 0 0 1 12 19Z"/><path d="M17.999 12.5a3 3 0 1 0-.118-5.993A3.001 3.001 0 0 0 18 12.5Z"/><path d="M6.001 12.5a3 3 0 1 1-.118-5.993A3.001 3.001 0 0 1 6 12.5Z"/><path d="M12 12a3 3 0 1 0-5.993.119A3.001 3.001 0 0 0 12 12Z"/><path d="M21 12a3 3 0 1 1-5.993-.119A3.001 3.001 0 0 1 21 12Z"/><path d="m14.28 7.49-1.12 1.12"/><path d="m10.03 9.62.89.89"/><path d="m7.13 13.62.23.23"/><path d="m14.56 14.56.23.23"/><path d="M18.88 10.03a.5.5 0 0 0-.47-.33h-1.42a.5.5 0 0 0-.47.33l-.5.88a.5.5 0 0 0 0 .5l.5.88a.5.5 0 0 0 .47.33h1.42a.5.5 0 0 0 .47-.33l.5-.88a.5.5 0 0 0 0-.5Z"/><path d="M9.12 18.88a.5.5 0 0 1 .33-.47v-1.42a.5.5 0 0 1 .33-.47l.88-.5a.5.5 0 0 1 .5 0l.88.5a.5.5 0 0 1 .33.47v1.42a.5.5 0 0 1-.33.47l-.88.5a.5.5 0 0 1-.5 0Z"/></svg>
 );
